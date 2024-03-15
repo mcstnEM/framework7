@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 1 : Nombre de caractères</title>
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        body {
+            width: 50%;
+            max-width: 800px;
+            min-width: 480px;
+            margin: 0 auto;
+        }
+
+        .result {
+            color: white;
+            padding: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Listes nombres</h1>
+    <ul id="numbers">
+        <li>A=<span>1</span></li>
+        <li>B=<span>2</span></li>
+        <li>C=<span>3</span></li>
+    </ul>
+    <script>
+        // On selection l'élément avec l'id "numbers"
+        const ulNumbers = document.getElementById('numbers');
+        // On définit les Lettres que l'on souhaite ajouter, pour ensuite itérer avec une "boucle for"
+        const letters = "DEFGH";
+
+        for(let i = 0; i < letters.length; i++) {
+            // pour chaque itération, on créé un élément <li> dans lequel on définit le contenu
+            let li = document.createElement('li');
+            li.innerHTML = letters[i] + "=" + '<span>' + (4 + i) + '</span>'
+            ulNumbers.appendChild(li)
+        }
+
+        const els = [...document.querySelectorAll('li')];
+
+        for(let i = 0; i < els.length; i++) {
+            // Le modulo retourne le reste de la division euclidienne. Il agit comme un "engrennage" (ex: A % B = C; C sera toujours inferieur ou égale à B)
+            els[i].querySelector('span').innerHTML = ((i + 1) % els.length) + 1
+        }
+    </script>
+</body>
+
+</html>
