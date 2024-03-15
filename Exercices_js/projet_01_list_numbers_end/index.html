@@ -32,7 +32,20 @@
         <li>C=<span>3</span></li>
     </ul>
     <script>
-      // code 
+        const els = [...document.querySelectorAll('li')];
+
+        for(let i = 0; i < els.length; i++) {
+            // Le modulo retourne le reste de la division euclidienne. Il agit comme un "engrennage" (ex: A % B = C; C sera toujours inferieur ou égale à B)
+            els[i].querySelector('span').innerHTML = ((i + 1) % els.length) + 1
+        }
+
+        /*
+        const els = [...document.querySelectorAll('ul.numbers > li')];
+
+        for(let i = 0; i < els.length; i++) {
+            const span = els[i].querySelector('span').innerHTML = els.length - i
+        }
+        */
     </script>
 </body>
 
