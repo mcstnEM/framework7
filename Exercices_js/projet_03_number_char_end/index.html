@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercice 1 : Nombre de caractères</title>
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+
+        body {
+            width: 50%;
+            max-width: 800px;
+            min-width: 480px;
+            margin: 0 auto;
+        }
+
+        .result {
+            color: palevioletred;
+            padding: 3px;
+        }
+        .warning {
+            color: purple;
+            padding: 3px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Nombre de caractères</h1>
+    <p>Formulaire de saisie</p>
+    <div class="form">
+        <label for="phrase">Votre phrase : </label>
+        <input type="text" id="phrase" class="phrase">
+        <input type="submit" value="Calculer" class="submitPhrase">
+    </div>
+    <div >
+        <p class="message"></p>
+        <p class="result"></p>
+        <p class="numberWord"></p>
+    </div>
+    <script>
+        let elInput = document.querySelector('.phrase');
+        const result = document.querySelector('.result');
+        const numberWord = document.querySelector('.numberWord');
+        const calcButton = document.querySelector('.submitPhrase')
+        // une fonction dite de callback que l'on passera à addEventListener
+        function handleInput(event){
+            let value = event.target.value;
+            result.textContent = value;
+        }
+
+        function handleClick(event) {
+            event.preventDefault();
+
+            // version avec trim()
+            phrase = elInput.value.trim()
+
+            // Version avec replace() et une regex
+            /*let phrase = elInput.value
+            phrase = phrase.replace(/\s/g,'');*/
+
+            if(phrase.length === 0) alert("Veuillé remplire le champ");
+
+            numberWord.textContent = phrase.length;
+
+            /*if(elInput.value.length === 0) {
+                const phrase = prompt("Veuillé remplire le champ");
+                numberWord.textContent = phrase.length;
+            }*/
+        }
+        
+        // On écoute les changement des inputs dans l'élément input
+        elInput.addEventListener('input', handleInput);
+        calcButton.addEventListener('click', handleClick);
+    </script>
+</body>
+</html>
