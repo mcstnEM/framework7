@@ -44,7 +44,6 @@ Récupérez le dossier **projet_01_list_numbers_start** dans les sources.
 1. Utilisez **querySelectorAll** méthode de l'interface **Document** permettant de cibler des éléments du DOM à l'aide d'une règle CSS à trouver. Puis dans la partie script de la page index.html faites un console.log pour afficher ces éléments, vous devriez voir nos ul/li :
 
 ```js
-
 let els = document.querySelectorAll(Votre_regles_css);
 console.log(els)
 ```
